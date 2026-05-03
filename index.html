@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Tarjeta de presentación digital de Kevin Miguel Perez Cordero."
+    />
+    <meta property="og:title" content="Kevin Miguel Perez Cordero | Tarjeta digital" />
+    <meta
+      property="og:description"
+      content="Ingeniero Electrónico con experiencia en redes FTTH y desarrollo de software."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/avatar.svg" />
+    <title>Kevin Miguel Perez Cordero | Tarjeta digital NFC</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="card" aria-label="Tarjeta de presentación digital">
+      <img
+        class="avatar"
+        src="1.jpg"
+        alt="Avatar de Kevin Miguel Perez Cordero"
+        width="220"
+        height="280"
+      />
+
+      <p class="tag">Disponible para colaborar</p>
+      <h1>Kevin Miguel Perez Cordero</h1>
+      <p class="role">Ingeniero Electrónico | Redes FTTH | Desarrollo de Software</p>
+      <p class="intro">
+        Más de 3 años de experiencia en diseño de redes FTTH, automatización de
+        procesos y desarrollo de software técnico para operaciones de campo.
+      </p>
+
+      <div class="meta" aria-label="Datos rápidos">
+        <p>Barquisimeto, Venezuela</p>
+        <p><a href="mailto:kevinperez9a@gmail.com">kevinperez9a@gmail.com</a></p>
+        <p><a href="tel:+584145685572">+58 414-568-5572</a></p>
+      </div>
+
+      <div class="actions" role="list" aria-label="Acciones de contacto">
+        <a role="listitem" href="https://wa.me/584145685572" target="_blank" rel="noopener noreferrer" class="btn primary">
+          WhatsApp
+        </a>
+        <a role="listitem" href="mailto:kevinperez9a@gmail.com" class="btn">Email</a>
+        <a role="listitem" href="https://www.linkedin.com/in/kevinperez2701" target="_blank" rel="noopener noreferrer" class="btn">LinkedIn</a>
+      </div>
+
+      <section class="panel" aria-label="Experiencia">
+        <h2>Experiencia</h2>
+        <ul>
+          <li>
+            <strong>Ingeniero de Proyectos — Redes FTTH</strong><br />
+            Corporación Telemic (Inter), Barquisimeto (2022 - Presente)
+          </li>
+          <li>
+            Desarrollo de matrices de fusión, auditorías y documentación técnica
+            para optimizar tiempos y operación.
+          </li>
+        </ul>
+      </section>
+
+      <section class="panel" aria-label="Habilidades técnicas">
+        <h2>Habilidades</h2>
+        <ul>
+          <li>Redes FTTH, diseño y metrados</li>
+          <li>Python, C#, .NET, Flutter</li>
+          <li>AutoCAD, ArcGIS, Google Earth</li>
+          <li>MySQL, SQL Server, MariaDB</li>
+          <li>Cisco AI Technical Practitioner</li>
+        </ul>
+      </section>
+
+      <section class="panel" aria-label="Idiomas y certificaciones">
+        <h2>Extra</h2>
+        <ul>
+          <li>Inglés C1 (EF SET)</li>
+          <li>EF SET English Certificate C1 Advanced</li>
+          <li>SQL for Data Science (UC Davis)</li>
+        </ul>
+      </section>
+
+      <section class="panel" aria-label="Mapa de NAPs del país">
+        <h2>Mapa de NAPs del país</h2>
+        <p class="map-note">
+          Publicación interactiva con NAPs en todo el país, organizada por
+          ciudades para consulta rápida.
+        </p>
+        <figure class="map-preview">
+          <img src="Naps.png" alt="Vista previa de mapas de NAPs a nivel nacional" loading="lazy" />
+          <figcaption>Vista previa de cobertura nacional de NAPs.</figcaption>
+        </figure>
+        <div class="map-wrap">
+          <iframe
+            src="https://www.google.com/maps/d/embed?mid=1Ba6rM6IetslVXyHbg-NKlGpz9vJf6CM&ehbc=2E312F"
+            width="640"
+            height="480"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Mapa de NAPs del país"
+          ></iframe>
+        </div>
+        <a
+          class="btn"
+          href="https://www.google.com/maps/d/u/0/viewer?mid=1Ba6rM6IetslVXyHbg-NKlGpz9vJf6CM"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Abrir publicación del mapa
+        </a>
+      </section>
+
+      <button id="copyLink" class="btn ghost" type="button">
+        Copiar enlace de esta tarjeta
+      </button>
+
+      <p id="status" class="status" aria-live="polite"></p>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
