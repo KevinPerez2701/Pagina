@@ -102,7 +102,12 @@ pendingImages.forEach((imageNode) => {
 });
 
 function initializeCarousel(config) {
-  const slides = Array.from(document.querySelectorAll(config.slideSelector));
+  const carouselRoot = document.getElementById(config.carouselId);
+  if (!carouselRoot) {
+    return;
+  }
+
+  const slides = Array.from(carouselRoot.querySelectorAll(config.slideSelector));
   const prevButton = document.getElementById(config.prevButtonId);
   const nextButton = document.getElementById(config.nextButtonId);
   const statusNode = document.getElementById(config.statusId);
@@ -112,10 +117,49 @@ function initializeCarousel(config) {
   }
 
   let activeSlideIndex = 0;
+  let touchStartX = null;
+
+  carouselRoot.tabIndex = 0;
+
+  const dotsNode = document.createElement('div');
+  dotsNode.className = 'carousel-dots';
+  dotsNode.setAttribute('aria-label', 'Navegacion de diapositivas');
+
+  const dots = slides.map((_, index) => {
+    const dotButton = document.createElement('button');
+    dotButton.className = 'carousel-dot';
+    dotButton.type = 'button';
+    dotButton.setAttribute('aria-label', `Ir a elemento ${index + 1}`);
+    dotButton.addEventListener('click', () => {
+      activeSlideIndex = index;
+      renderCarousel();
+    });
+    dotsNode.append(dotButton);
+    return dotButton;
+  });
+
+  statusNode?.insertAdjacentElement('beforebegin', dotsNode);
+
+  function ensureLazyMediaLoaded(slideNode) {
+    const iframes = Array.from(slideNode.querySelectorAll('iframe[data-src]'));
+    iframes.forEach((frame) => {
+      if (!frame.getAttribute('src')) {
+        frame.setAttribute('src', frame.dataset.src || '');
+      }
+    });
+  }
 
   function renderCarousel() {
     slides.forEach((slide, index) => {
       slide.classList.toggle('is-active', index === activeSlideIndex);
+      slide.setAttribute('aria-hidden', String(index !== activeSlideIndex));
+      if (index === activeSlideIndex) {
+        ensureLazyMediaLoaded(slide);
+      }
+    });
+
+    dots.forEach((dot, index) => {
+      dot.setAttribute('aria-current', String(index === activeSlideIndex));
     });
 
     if (statusNode) {
@@ -133,10 +177,48 @@ function initializeCarousel(config) {
     renderCarousel();
   });
 
+  carouselRoot.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft') {
+      activeSlideIndex = (activeSlideIndex - 1 + slides.length) % slides.length;
+      renderCarousel();
+    }
+
+    if (event.key === 'ArrowRight') {
+      activeSlideIndex = (activeSlideIndex + 1) % slides.length;
+      renderCarousel();
+    }
+  });
+
+  carouselRoot.addEventListener('pointerdown', (event) => {
+    touchStartX = event.clientX;
+  });
+
+  carouselRoot.addEventListener('pointerup', (event) => {
+    if (touchStartX === null) {
+      return;
+    }
+
+    const deltaX = event.clientX - touchStartX;
+    touchStartX = null;
+
+    if (Math.abs(deltaX) < 40) {
+      return;
+    }
+
+    if (deltaX > 0) {
+      activeSlideIndex = (activeSlideIndex - 1 + slides.length) % slides.length;
+    } else {
+      activeSlideIndex = (activeSlideIndex + 1) % slides.length;
+    }
+
+    renderCarousel();
+  });
+
   renderCarousel();
 }
 
 initializeCarousel({
+  carouselId: 'feedersCarousel',
   slideSelector: '[data-carousel-slide="feeders"]',
   prevButtonId: 'feedersPrev',
   nextButtonId: 'feedersNext',
@@ -144,6 +226,7 @@ initializeCarousel({
 });
 
 initializeCarousel({
+  carouselId: 'mapsCarousel',
   slideSelector: '[data-carousel-slide="maps"]',
   prevButtonId: 'mapsPrev',
   nextButtonId: 'mapsNext',
