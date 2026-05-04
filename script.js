@@ -21,6 +21,7 @@ copyButton?.addEventListener('click', async () => {
 
 const certToggles = Array.from(document.querySelectorAll('.cert-toggle'));
 const aporteToggles = Array.from(document.querySelectorAll('.aportes-toggle'));
+const pendingImages = Array.from(document.querySelectorAll('[data-pending-image]'));
 
 certToggles.forEach((toggleButton) => {
   toggleButton.addEventListener('click', () => {
@@ -68,6 +69,36 @@ aporteToggles.forEach((toggleButton) => {
       }
     }
   });
+});
+
+pendingImages.forEach((imageNode) => {
+  const shell = imageNode.closest('[data-image-shell]');
+
+  function markReady() {
+    shell?.classList.add('is-ready');
+  }
+
+  function markPending() {
+    shell?.classList.remove('is-ready');
+  }
+
+  imageNode.addEventListener('load', () => {
+    if (imageNode.naturalWidth > 0) {
+      markReady();
+    }
+  });
+
+  imageNode.addEventListener('error', () => {
+    markPending();
+  });
+
+  if (imageNode.complete) {
+    if (imageNode.naturalWidth > 0) {
+      markReady();
+    } else {
+      markPending();
+    }
+  }
 });
 
 function initializeCarousel(config) {

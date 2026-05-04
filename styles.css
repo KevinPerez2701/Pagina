@@ -356,6 +356,27 @@ h1 {
   color: var(--muted);
   margin-bottom: 10px;
   font-size: 0.92rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.contribution-image {
+  display: none;
+  width: 100%;
+  height: auto;
+}
+
+.contribution-media.is-ready {
+  border-style: solid;
+  background: #fff;
+}
+
+.contribution-media.is-ready .contribution-image {
+  display: block;
+}
+
+.contribution-media.is-ready .contribution-placeholder {
+  display: none;
 }
 
 .aportes-actions {
