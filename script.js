@@ -23,6 +23,45 @@ const certToggles = Array.from(document.querySelectorAll('.cert-toggle'));
 const aporteToggles = Array.from(document.querySelectorAll('.aportes-toggle'));
 const pendingImages = Array.from(document.querySelectorAll('[data-pending-image]'));
 
+function markImageShell(imageNode, isReady) {
+  const shell = imageNode.closest('[data-image-shell]');
+  shell?.classList.toggle('is-ready', isReady);
+}
+
+function bindPendingImage(imageNode) {
+  imageNode.addEventListener('load', () => {
+    markImageShell(imageNode, imageNode.naturalWidth > 0);
+  });
+
+  imageNode.addEventListener('error', () => {
+    markImageShell(imageNode, false);
+  });
+
+  if (imageNode.complete) {
+    markImageShell(imageNode, imageNode.naturalWidth > 0);
+  }
+}
+
+function forceLoadImage(imageNode) {
+  imageNode.loading = 'eager';
+
+  if (imageNode.complete) {
+    markImageShell(imageNode, imageNode.naturalWidth > 0);
+    return;
+  }
+
+  if (typeof imageNode.decode === 'function') {
+    imageNode
+      .decode()
+      .then(() => {
+        markImageShell(imageNode, imageNode.naturalWidth > 0);
+      })
+      .catch(() => {
+        markImageShell(imageNode, false);
+      });
+  }
+}
+
 certToggles.forEach((toggleButton) => {
   toggleButton.addEventListener('click', () => {
     const contentId = toggleButton.getAttribute('aria-controls');
@@ -66,39 +105,18 @@ aporteToggles.forEach((toggleButton) => {
       toggleButton.setAttribute('aria-expanded', 'true');
       if (contentNode) {
         contentNode.hidden = false;
+
+        const contentImages = Array.from(contentNode.querySelectorAll('[data-pending-image]'));
+        contentImages.forEach((imageNode) => {
+          forceLoadImage(imageNode);
+        });
       }
     }
   });
 });
 
 pendingImages.forEach((imageNode) => {
-  const shell = imageNode.closest('[data-image-shell]');
-
-  function markReady() {
-    shell?.classList.add('is-ready');
-  }
-
-  function markPending() {
-    shell?.classList.remove('is-ready');
-  }
-
-  imageNode.addEventListener('load', () => {
-    if (imageNode.naturalWidth > 0) {
-      markReady();
-    }
-  });
-
-  imageNode.addEventListener('error', () => {
-    markPending();
-  });
-
-  if (imageNode.complete) {
-    if (imageNode.naturalWidth > 0) {
-      markReady();
-    } else {
-      markPending();
-    }
-  }
+  bindPendingImage(imageNode);
 });
 
 function initializeCarousel(config) {
