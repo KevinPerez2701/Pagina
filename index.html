@@ -20,6 +20,10 @@
   </head>
   <body>
     <main class="card" aria-label="Tarjeta de presentación digital">
+      <button id="copyLink" class="share-btn" type="button" aria-label="Compartir tarjeta" title="Compartir tarjeta">
+        <span aria-hidden="true">⤴</span>
+      </button>
+
       <img
         class="avatar"
         src="1.jpg"
@@ -28,7 +32,6 @@
         height="280"
       />
 
-      <p class="tag">Disponible para colaborar</p>
       <h1>Kevin Miguel Perez Cordero</h1>
       <p class="role">Ingeniero Electrónico | Redes FTTH | Desarrollo de Software</p>
       <p class="intro">
@@ -36,18 +39,12 @@
         procesos y desarrollo de software técnico para operaciones de campo.
       </p>
 
-      <div class="meta" aria-label="Datos rápidos">
-        <p>Barquisimeto, Venezuela</p>
-        <p><a href="mailto:kevinperez9a@gmail.com">kevinperez9a@gmail.com</a></p>
-        <p><a href="tel:+584145685572">+58 414-568-5572</a></p>
-      </div>
-
       <div class="actions" role="list" aria-label="Acciones de contacto">
-        <a role="listitem" href="https://wa.me/584145685572" target="_blank" rel="noopener noreferrer" class="btn primary">
+        <a role="listitem" href="https://wa.me/584145685572" target="_blank" rel="noopener noreferrer" class="btn whatsapp">
           WhatsApp
         </a>
-        <a role="listitem" href="mailto:kevinperez9a@gmail.com" class="btn">Email</a>
-        <a role="listitem" href="https://www.linkedin.com/in/kevinperez2701" target="_blank" rel="noopener noreferrer" class="btn">LinkedIn</a>
+        <a role="listitem" href="mailto:kevinperez9a@gmail.com" class="btn gmail">Email</a>
+        <a role="listitem" href="https://www.linkedin.com/in/kevinperez2701" target="_blank" rel="noopener noreferrer" class="btn linkedin">LinkedIn</a>
       </div>
 
       <section class="panel" aria-label="Experiencia">
@@ -67,7 +64,7 @@
       <section class="panel" aria-label="Habilidades técnicas">
         <h2>Habilidades</h2>
         <ul>
-          <li>Redes FTTH, diseño y metrados</li>
+          <li>Redes FTTH, diseño y cálculo de materiales</li>
           <li>Python, C#, .NET, Flutter</li>
           <li>AutoCAD, ArcGIS, Google Earth</li>
           <li>MySQL, SQL Server, MariaDB</li>
@@ -76,47 +73,220 @@
       </section>
 
       <section class="panel" aria-label="Idiomas y certificaciones">
-        <h2>Extra</h2>
-        <ul>
-          <li>Inglés C1 (EF SET)</li>
-          <li>EF SET English Certificate C1 Advanced</li>
-          <li>SQL for Data Science (UC Davis)</li>
-        </ul>
-      </section>
+        <h2>Extras</h2>
 
-      <section class="panel" aria-label="Mapa de NAPs del país">
-        <h2>Mapa de NAPs del país</h2>
-        <p class="map-note">
-          Publicación interactiva con NAPs en todo el país, organizada por
-          ciudades para consulta rápida.
-        </p>
-        <figure class="map-preview">
-          <img src="Naps.png" alt="Vista previa de mapas de NAPs a nivel nacional" loading="lazy" />
-          <figcaption>Vista previa de cobertura nacional de NAPs.</figcaption>
-        </figure>
-        <div class="map-wrap">
-          <iframe
-            src="https://www.google.com/maps/d/embed?mid=1Ba6rM6IetslVXyHbg-NKlGpz9vJf6CM&ehbc=2E312F"
-            width="640"
-            height="480"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Mapa de NAPs del país"
-          ></iframe>
+        <div class="cert-accordion" aria-label="Certificados">
+          <article class="cert-item">
+            <button class="cert-toggle" type="button" aria-expanded="false" aria-controls="certEfContent">
+              <span>Ingles EF SET Avanzado</span>
+              <span class="toggle-arrow">▸</span>
+            </button>
+            <div class="cert-content" id="certEfContent" hidden>
+              <figure class="cert-preview">
+                <img src="Ingles%20Ef.png" alt="Ingles EF SET Avanzado" loading="lazy" />
+                <figcaption>Ingles EF SET Avanzado</figcaption>
+              </figure>
+            </div>
+          </article>
+
+          <article class="cert-item">
+            <button class="cert-toggle" type="button" aria-expanded="false" aria-controls="certCiscoContent">
+              <span>Cisco Ai Technichal Practicioner</span>
+              <span class="toggle-arrow">▸</span>
+            </button>
+            <div class="cert-content" id="certCiscoContent" hidden>
+              <figure class="cert-preview">
+                <img src="Cisco.png" alt="Cisco Ai Technichal Practicioner" loading="lazy" />
+                <figcaption>Cisco Ai Technichal Practicioner</figcaption>
+              </figure>
+            </div>
+          </article>
+
+          <article class="cert-item">
+            <button class="cert-toggle" type="button" aria-expanded="false" aria-controls="certSqlContent">
+              <span>SQL aplicado a ciencia de datos.</span>
+              <span class="toggle-arrow">▸</span>
+            </button>
+            <div class="cert-content" id="certSqlContent" hidden>
+              <figure class="cert-preview">
+                <img src="BBDD.png" alt="SQL aplicado a ciencia de datos." loading="lazy" />
+                <figcaption>SQL aplicado a ciencia de datos.</figcaption>
+              </figure>
+            </div>
+          </article>
         </div>
-        <a
-          class="btn"
-          href="https://www.google.com/maps/d/u/0/viewer?mid=1Ba6rM6IetslVXyHbg-NKlGpz9vJf6CM"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Abrir publicación del mapa
-        </a>
       </section>
 
-      <button id="copyLink" class="btn ghost" type="button">
-        Copiar enlace de esta tarjeta
-      </button>
+      <section class="panel" aria-label="Aportes">
+        <h2>Aportes</h2>
+        <div class="aportes-accordion" aria-label="Secciones de aportes">
+          <article class="cert-item">
+            <button class="aportes-toggle" type="button" aria-expanded="false" aria-controls="aporte1Content">
+              <span>1. Registro de Nap a nivel Nacional</span>
+              <span class="toggle-arrow">▸</span>
+            </button>
+            <div class="aportes-content" id="aporte1Content" hidden>
+              <p class="map-note">Galería de imágenes y mapas del registro nacional de NAPs.</p>
+              <h4 class="subitem-title">Imágenes</h4>
+              <div class="carousel" id="feedersCarousel" aria-label="Carrusel de imágenes de NAPs">
+                <button class="carousel-control" id="feedersPrev" type="button" aria-label="Feeder anterior">◀</button>
+                <div class="carousel-track">
+                  <article class="carousel-slide is-active" data-carousel-slide="feeders">
+                    <figure class="map-preview">
+                      <img src="Naps.png" alt="Naps general" loading="lazy" />
+                      <figcaption>Naps general</figcaption>
+                    </figure>
+                  </article>
+                  <article class="carousel-slide" data-carousel-slide="feeders">
+                    <figure class="map-preview">
+                      <img src="Naps%20San%20Felipe.png" alt="Naps San Felipe" loading="lazy" />
+                      <figcaption>Naps San Felipe</figcaption>
+                    </figure>
+                  </article>
+                  <article class="carousel-slide" data-carousel-slide="feeders">
+                    <figure class="map-preview">
+                      <img src="Naps%20Cumanacoa.png" alt="Naps Cumanacoa" loading="lazy" />
+                      <figcaption>Naps Cumanacoa</figcaption>
+                    </figure>
+                  </article>
+                  <article class="carousel-slide" data-carousel-slide="feeders">
+                    <figure class="map-preview">
+                      <img src="Naps%20Carora.png" alt="Naps Carora" loading="lazy" />
+                      <figcaption>Naps Carora</figcaption>
+                    </figure>
+                  </article>
+                  <article class="carousel-slide" data-carousel-slide="feeders">
+                    <figure class="map-preview">
+                      <img src="Naps%20Barquisimeto.png" alt="Naps Barquisimeto" loading="lazy" />
+                      <figcaption>Naps Barquisimeto</figcaption>
+                    </figure>
+                  </article>
+                  <article class="carousel-slide" data-carousel-slide="feeders">
+                    <figure class="map-preview">
+                      <img src="Naps%20Barinitas.png" alt="Naps Barinitas" loading="lazy" />
+                      <figcaption>Naps Barinitas</figcaption>
+                    </figure>
+                  </article>
+                  <article class="carousel-slide" data-carousel-slide="feeders">
+                    <figure class="map-preview">
+                      <img src="Naps%20Acarigua.png" alt="Naps Acarigua" loading="lazy" />
+                      <figcaption>Naps Acarigua</figcaption>
+                    </figure>
+                  </article>
+                  <article class="carousel-slide" data-carousel-slide="feeders">
+                    <figure class="map-preview">
+                      <img src="Nap%20Por%20Feeder.png" alt="Nap Por Feeder" loading="lazy" />
+                      <figcaption>Nap Por Feeder</figcaption>
+                    </figure>
+                  </article>
+                </div>
+                <button class="carousel-control" id="feedersNext" type="button" aria-label="Siguiente feeder">▶</button>
+              </div>
+              <p class="carousel-status" id="feedersStatus" aria-live="polite">1 / 8</p>
+
+              <h4 class="subitem-title">Mapas</h4>
+              <p class="map-note">Todos los mapas del registro nacional consolidados en un carrusel.</p>
+              <div class="carousel" id="mapsCarousel" aria-label="Carrusel de mapas adicionales">
+                <button class="carousel-control" id="mapsPrev" type="button" aria-label="Mapa anterior">◀</button>
+                <div class="carousel-track">
+                  <article class="carousel-slide is-active" data-carousel-slide="maps">
+                    <div class="map-wrap">
+                      <iframe
+                        src="https://www.google.com/maps/d/embed?mid=1Ba6rM6IetslVXyHbg-NKlGpz9vJf6CM&ehbc=2E312F"
+                        width="640"
+                        height="480"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Naps Barquisimeto"
+                      ></iframe>
+                    </div>
+                  </article>
+                  <article class="carousel-slide" data-carousel-slide="maps">
+                    <div class="map-wrap">
+                      <iframe
+                        src="https://www.google.com/maps/d/embed?mid=1hZkzJLGByI1DQJXpa-Xi1jvHeZ2MC-U&ehbc=2E312F"
+                        width="640"
+                        height="480"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Naps por feeder"
+                      ></iframe>
+                    </div>
+                  </article>
+                  <article class="carousel-slide" data-carousel-slide="maps">
+                    <div class="map-wrap">
+                      <iframe
+                        src="https://www.google.com/maps/d/embed?mid=1FZF3aW-EViym_t-ZbmsP4bEBbR7jnu4&ehbc=2E312F"
+                        width="640"
+                        height="480"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="cbu10 por buffer"
+                      ></iframe>
+                    </div>
+                  </article>
+                </div>
+                <button class="carousel-control" id="mapsNext" type="button" aria-label="Siguiente mapa">▶</button>
+              </div>
+              <p class="carousel-status" id="mapsStatus" aria-live="polite">1 / 3</p>
+            </div>
+          </article>
+
+          <article class="cert-item">
+            <button class="aportes-toggle" type="button" aria-expanded="false" aria-controls="aporte2Content">
+              <span>2. Dashboard de Registro de Feeders en Nap Register</span>
+              <span class="toggle-arrow">▸</span>
+            </button>
+            <div class="aportes-content" id="aporte2Content" hidden>
+              <div class="contribution-card">
+                <p>Acceso al dashboard de seguimiento y visualización de feeders.</p>
+                <div class="aportes-actions">
+                  <a class="btn" href="http://10.14.9.229/Dashboard/" target="_blank" rel="noopener noreferrer">
+                    Abrir Dashboard
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="cert-item">
+            <button class="aportes-toggle" type="button" aria-expanded="false" aria-controls="aporte3Content">
+              <span>3. Auditor Nap Register</span>
+              <span class="toggle-arrow">▸</span>
+            </button>
+            <div class="aportes-content" id="aporte3Content" hidden>
+              <div class="contribution-card">
+                <p>Auditoría de registros y control operativo de Nap Register.</p>
+                <div class="aportes-actions">
+                  <a class="btn" href="http://10.14.9.228/auditoria" target="_blank" rel="noopener noreferrer">
+                    Abrir Auditor
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="cert-item">
+            <button class="aportes-toggle" type="button" aria-expanded="false" aria-controls="aporte4Content">
+              <span>4. Creador de Matrices</span>
+              <span class="toggle-arrow">▸</span>
+            </button>
+            <div class="aportes-content" id="aporte4Content" hidden>
+              <div class="contribution-card">
+                <p>Generador de matrices para documentación técnica de red.</p>
+                <div class="aportes-actions">
+                  <a class="btn" href="http://10.4.5.4/proyectos" target="_blank" rel="noopener noreferrer">
+                    Abrir Creador de Matrices
+                  </a>
+                  <a class="btn" href="Feeder-OBTO02.txt" download="Feeder OBTO02.txt">
+                    Descargar archivo de prueba (Feeder OBTO02)
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
 
       <p id="status" class="status" aria-live="polite"></p>
     </main>

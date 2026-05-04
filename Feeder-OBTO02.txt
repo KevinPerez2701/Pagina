@@ -1,0 +1,11 @@
+Feeder: OBTO02
+Proyecto: Creador de Matrices
+Uso: Archivo de prueba para descarga desde la tarjeta digital.
+
+Campos de referencia:
+- Ciudad:
+- Nap principal:
+- Longitud estimada:
+- Observaciones:
+
+Nota: Este archivo es demostrativo y puede ser reemplazado por la versión final.
