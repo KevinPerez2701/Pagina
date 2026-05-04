@@ -15,7 +15,7 @@ copyButton?.addEventListener('click', async () => {
     await navigator.clipboard.writeText(window.location.href);
     showMessage('Enlace copiado.');
   } catch {
-    showMessage('No se pudo copiar automáticamente.');
+    showMessage('No se pudo copiar automaticamente.');
   }
 });
 
@@ -106,6 +106,13 @@ aporteToggles.forEach((toggleButton) => {
       if (contentNode) {
         contentNode.hidden = false;
 
+        const contentCarousels = Array.from(contentNode.querySelectorAll('.carousel'));
+        contentCarousels.forEach((carouselNode) => {
+          if (typeof carouselNode.refreshCarousel === 'function') {
+            carouselNode.refreshCarousel();
+          }
+        });
+
         const contentImages = Array.from(contentNode.querySelectorAll('[data-pending-image]'));
         contentImages.forEach((imageNode) => {
           forceLoadImage(imageNode);
@@ -128,7 +135,7 @@ function initializeCarousel(config) {
   const slides = Array.from(carouselRoot.querySelectorAll(config.slideSelector));
   const prevButton = document.getElementById(config.prevButtonId);
   const nextButton = document.getElementById(config.nextButtonId);
-  const statusNode = document.getElementById(config.statusId);
+  const carouselStatusNode = document.getElementById(config.statusId);
 
   if (slides.length === 0) {
     return;
@@ -136,6 +143,7 @@ function initializeCarousel(config) {
 
   let activeSlideIndex = 0;
   let touchStartX = null;
+  let allLazyMediaLoaded = false;
 
   carouselRoot.tabIndex = 0;
 
@@ -156,7 +164,11 @@ function initializeCarousel(config) {
     return dotButton;
   });
 
-  statusNode?.insertAdjacentElement('beforebegin', dotsNode);
+  carouselStatusNode?.insertAdjacentElement('beforebegin', dotsNode);
+
+  function canLoadMediaNow() {
+    return !carouselRoot.closest('[hidden]');
+  }
 
   function ensureLazyMediaLoaded(slideNode) {
     const iframes = Array.from(slideNode.querySelectorAll('iframe[data-src]'));
@@ -167,11 +179,22 @@ function initializeCarousel(config) {
     });
   }
 
+  function ensureAllLazyMediaLoaded() {
+    const iframes = Array.from(carouselRoot.querySelectorAll('iframe[data-src]'));
+    iframes.forEach((frame) => {
+      if (!frame.getAttribute('src')) {
+        frame.setAttribute('src', frame.dataset.src || '');
+      }
+    });
+    allLazyMediaLoaded = true;
+  }
+
   function renderCarousel() {
     slides.forEach((slide, index) => {
       slide.classList.toggle('is-active', index === activeSlideIndex);
       slide.setAttribute('aria-hidden', String(index !== activeSlideIndex));
-      if (index === activeSlideIndex) {
+
+      if (index === activeSlideIndex && canLoadMediaNow()) {
         ensureLazyMediaLoaded(slide);
       }
     });
@@ -180,8 +203,20 @@ function initializeCarousel(config) {
       dot.setAttribute('aria-current', String(index === activeSlideIndex));
     });
 
-    if (statusNode) {
-      statusNode.textContent = `${activeSlideIndex + 1} / ${slides.length}`;
+    if (carouselStatusNode) {
+      carouselStatusNode.textContent = `${activeSlideIndex + 1} / ${slides.length}`;
+    }
+
+    if (config.preloadAllMediaOnOpen && canLoadMediaNow() && !allLazyMediaLoaded) {
+      if (typeof window.requestIdleCallback === 'function') {
+        window.requestIdleCallback(() => {
+          ensureAllLazyMediaLoaded();
+        });
+      } else {
+        window.setTimeout(() => {
+          ensureAllLazyMediaLoaded();
+        }, 80);
+      }
     }
   }
 
@@ -232,6 +267,7 @@ function initializeCarousel(config) {
     renderCarousel();
   });
 
+  carouselRoot.refreshCarousel = renderCarousel;
   renderCarousel();
 }
 
@@ -249,4 +285,5 @@ initializeCarousel({
   prevButtonId: 'mapsPrev',
   nextButtonId: 'mapsNext',
   statusId: 'mapsStatus',
+  preloadAllMediaOnOpen: true,
 });

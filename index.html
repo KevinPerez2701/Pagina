@@ -15,6 +15,9 @@
     <meta property="og:type" content="website" />
     <meta property="og:image" content="assets/avatar.svg" />
     <title>Kevin Miguel Perez Cordero | Tarjeta digital NFC</title>
+    <link rel="preconnect" href="https://www.google.com" />
+    <link rel="preconnect" href="https://www.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://maps.googleapis.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -31,16 +34,28 @@
         <span aria-hidden="true">⤴</span>
       </button>
 
-      <img
-        class="avatar"
-        src="1.jpg"
-        alt="Avatar de Kevin Miguel Perez Cordero"
-        width="220"
-        height="280"
-        loading="eager"
-        decoding="async"
-        fetchpriority="high"
-      />
+      <picture>
+        <source
+          type="image/avif"
+          srcset="assets/optimized/1-320.avif 320w, assets/optimized/1-480.avif 480w, assets/optimized/1-720.avif 720w"
+          sizes="(max-width: 760px) 58vw, (max-width: 980px) 220px, 260px"
+        />
+        <source
+          type="image/webp"
+          srcset="assets/optimized/1-320.webp 320w, assets/optimized/1-480.webp 480w, assets/optimized/1-720.webp 720w"
+          sizes="(max-width: 760px) 58vw, (max-width: 980px) 220px, 260px"
+        />
+        <img
+          class="avatar"
+          src="1.jpg"
+          alt="Avatar de Kevin Miguel Perez Cordero"
+          width="220"
+          height="280"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        />
+      </picture>
 
       <h1>Kevin Miguel Perez Cordero</h1>
       <p class="role">Ingeniero Electrónico | Redes FTTH | Desarrollo de Software</p>
@@ -93,7 +108,19 @@
             </button>
             <div class="cert-content" id="certEfContent" hidden>
               <figure class="cert-preview">
-                <img src="Ingles%20Ef.png" alt="Ingles EF SET Avanzado" loading="lazy" />
+                <picture>
+                  <source
+                    type="image/avif"
+                    srcset="assets/optimized/ingles-ef-480.avif 480w, assets/optimized/ingles-ef-614.avif 614w"
+                    sizes="(max-width: 760px) 88vw, 520px"
+                  />
+                  <source
+                    type="image/webp"
+                    srcset="assets/optimized/ingles-ef-480.webp 480w, assets/optimized/ingles-ef-614.webp 614w"
+                    sizes="(max-width: 760px) 88vw, 520px"
+                  />
+                  <img src="Ingles%20Ef.png" alt="Ingles EF SET Avanzado" loading="lazy" decoding="async" />
+                </picture>
                 <figcaption>Ingles EF SET Avanzado</figcaption>
               </figure>
             </div>
@@ -106,7 +133,19 @@
             </button>
             <div class="cert-content" id="certCiscoContent" hidden>
               <figure class="cert-preview">
-                <img src="Cisco.png" alt="Cisco Ai Technichal Practicioner" loading="lazy" />
+                <picture>
+                  <source
+                    type="image/avif"
+                    srcset="assets/optimized/cisco-480.avif 480w, assets/optimized/cisco-720.avif 720w, assets/optimized/cisco-1080.avif 1080w"
+                    sizes="(max-width: 760px) 88vw, 520px"
+                  />
+                  <source
+                    type="image/webp"
+                    srcset="assets/optimized/cisco-480.webp 480w, assets/optimized/cisco-720.webp 720w, assets/optimized/cisco-1080.webp 1080w"
+                    sizes="(max-width: 760px) 88vw, 520px"
+                  />
+                  <img src="Cisco.png" alt="Cisco Ai Technichal Practicioner" loading="lazy" decoding="async" />
+                </picture>
                 <figcaption>Cisco Ai Technichal Practicioner</figcaption>
               </figure>
             </div>
@@ -119,7 +158,19 @@
             </button>
             <div class="cert-content" id="certSqlContent" hidden>
               <figure class="cert-preview">
-                <img src="BBDD.png" alt="SQL aplicado a ciencia de datos." loading="lazy" />
+                <picture>
+                  <source
+                    type="image/avif"
+                    srcset="assets/optimized/bbdd-480.avif 480w, assets/optimized/bbdd-720.avif 720w, assets/optimized/bbdd-1080.avif 1080w"
+                    sizes="(max-width: 760px) 88vw, 520px"
+                  />
+                  <source
+                    type="image/webp"
+                    srcset="assets/optimized/bbdd-480.webp 480w, assets/optimized/bbdd-720.webp 720w, assets/optimized/bbdd-1080.webp 1080w"
+                    sizes="(max-width: 760px) 88vw, 520px"
+                  />
+                  <img src="BBDD.png" alt="SQL aplicado a ciencia de datos." loading="lazy" decoding="async" />
+                </picture>
                 <figcaption>SQL aplicado a ciencia de datos.</figcaption>
               </figure>
             </div>
@@ -142,49 +193,97 @@
                 <div class="carousel-track">
                   <article class="carousel-slide is-active" data-carousel-slide="feeders">
                     <figure class="map-preview">
-                      <img src="Naps.png" alt="Naps general" loading="lazy" />
+                      <picture>
+                        <source
+                          type="image/avif"
+                          srcset="assets/optimized/naps-480.avif 480w, assets/optimized/naps-720.avif 720w, assets/optimized/naps-1080.avif 1080w"
+                          sizes="(max-width: 760px) 88vw, 620px"
+                        />
+                        <source
+                          type="image/webp"
+                          srcset="assets/optimized/naps-480.webp 480w, assets/optimized/naps-720.webp 720w, assets/optimized/naps-1080.webp 1080w"
+                          sizes="(max-width: 760px) 88vw, 620px"
+                        />
+                        <img src="Naps.png" alt="Naps general" loading="lazy" decoding="async" />
+                      </picture>
                       <figcaption>Naps general</figcaption>
                     </figure>
                   </article>
                   <article class="carousel-slide" data-carousel-slide="feeders">
                     <figure class="map-preview">
-                      <img src="Naps%20San%20Felipe.png" alt="Naps San Felipe" loading="lazy" />
+                      <picture>
+                        <source type="image/avif" srcset="assets/optimized/naps-san-felipe-307.avif 307w" sizes="(max-width: 760px) 88vw, 307px" />
+                        <source type="image/webp" srcset="assets/optimized/naps-san-felipe-307.webp 307w" sizes="(max-width: 760px) 88vw, 307px" />
+                        <img src="Naps%20San%20Felipe.png" alt="Naps San Felipe" loading="lazy" decoding="async" />
+                      </picture>
                       <figcaption>Naps San Felipe</figcaption>
                     </figure>
                   </article>
                   <article class="carousel-slide" data-carousel-slide="feeders">
                     <figure class="map-preview">
-                      <img src="Naps%20Cumanacoa.png" alt="Naps Cumanacoa" loading="lazy" />
+                      <picture>
+                        <source type="image/avif" srcset="assets/optimized/naps-cumanacoa-289.avif 289w" sizes="(max-width: 760px) 88vw, 289px" />
+                        <source type="image/webp" srcset="assets/optimized/naps-cumanacoa-289.webp 289w" sizes="(max-width: 760px) 88vw, 289px" />
+                        <img src="Naps%20Cumanacoa.png" alt="Naps Cumanacoa" loading="lazy" decoding="async" />
+                      </picture>
                       <figcaption>Naps Cumanacoa</figcaption>
                     </figure>
                   </article>
                   <article class="carousel-slide" data-carousel-slide="feeders">
                     <figure class="map-preview">
-                      <img src="Naps%20Carora.png" alt="Naps Carora" loading="lazy" />
+                      <picture>
+                        <source type="image/avif" srcset="assets/optimized/naps-carora-299.avif 299w" sizes="(max-width: 760px) 88vw, 299px" />
+                        <source type="image/webp" srcset="assets/optimized/naps-carora-299.webp 299w" sizes="(max-width: 760px) 88vw, 299px" />
+                        <img src="Naps%20Carora.png" alt="Naps Carora" loading="lazy" decoding="async" />
+                      </picture>
                       <figcaption>Naps Carora</figcaption>
                     </figure>
                   </article>
                   <article class="carousel-slide" data-carousel-slide="feeders">
                     <figure class="map-preview">
-                      <img src="Naps%20Barquisimeto.png" alt="Naps Barquisimeto" loading="lazy" />
+                      <picture>
+                        <source type="image/avif" srcset="assets/optimized/naps-barquisimeto-291.avif 291w" sizes="(max-width: 760px) 88vw, 291px" />
+                        <source type="image/webp" srcset="assets/optimized/naps-barquisimeto-291.webp 291w" sizes="(max-width: 760px) 88vw, 291px" />
+                        <img src="Naps%20Barquisimeto.png" alt="Naps Barquisimeto" loading="lazy" decoding="async" />
+                      </picture>
                       <figcaption>Naps Barquisimeto</figcaption>
                     </figure>
                   </article>
                   <article class="carousel-slide" data-carousel-slide="feeders">
                     <figure class="map-preview">
-                      <img src="Naps%20Barinitas.png" alt="Naps Barinitas" loading="lazy" />
+                      <picture>
+                        <source type="image/avif" srcset="assets/optimized/naps-barinitas-294.avif 294w" sizes="(max-width: 760px) 88vw, 294px" />
+                        <source type="image/webp" srcset="assets/optimized/naps-barinitas-294.webp 294w" sizes="(max-width: 760px) 88vw, 294px" />
+                        <img src="Naps%20Barinitas.png" alt="Naps Barinitas" loading="lazy" decoding="async" />
+                      </picture>
                       <figcaption>Naps Barinitas</figcaption>
                     </figure>
                   </article>
                   <article class="carousel-slide" data-carousel-slide="feeders">
                     <figure class="map-preview">
-                      <img src="Naps%20Acarigua.png" alt="Naps Acarigua" loading="lazy" />
+                      <picture>
+                        <source type="image/avif" srcset="assets/optimized/naps-acarigua-364.avif 364w" sizes="(max-width: 760px) 88vw, 364px" />
+                        <source type="image/webp" srcset="assets/optimized/naps-acarigua-364.webp 364w" sizes="(max-width: 760px) 88vw, 364px" />
+                        <img src="Naps%20Acarigua.png" alt="Naps Acarigua" loading="lazy" decoding="async" />
+                      </picture>
                       <figcaption>Naps Acarigua</figcaption>
                     </figure>
                   </article>
                   <article class="carousel-slide" data-carousel-slide="feeders">
                     <figure class="map-preview">
-                      <img src="Nap%20Por%20Feeder.png" alt="Nap Por Feeder" loading="lazy" />
+                      <picture>
+                        <source
+                          type="image/avif"
+                          srcset="assets/optimized/nap-por-feeder-480.avif 480w, assets/optimized/nap-por-feeder-720.avif 720w, assets/optimized/nap-por-feeder-1080.avif 1080w"
+                          sizes="(max-width: 760px) 88vw, 620px"
+                        />
+                        <source
+                          type="image/webp"
+                          srcset="assets/optimized/nap-por-feeder-480.webp 480w, assets/optimized/nap-por-feeder-720.webp 720w, assets/optimized/nap-por-feeder-1080.webp 1080w"
+                          sizes="(max-width: 760px) 88vw, 620px"
+                        />
+                        <img src="Nap%20Por%20Feeder.png" alt="Nap Por Feeder" loading="lazy" decoding="async" />
+                      </picture>
                       <figcaption>Nap Por Feeder</figcaption>
                     </figure>
                   </article>
@@ -248,14 +347,26 @@
             <div class="aportes-content" id="aporte2Content" hidden>
               <div class="contribution-card">
                 <div class="contribution-media" data-image-shell>
-                  <img
-                    class="contribution-image"
-                    src="aporte-2-dashboard.png"
-                    alt="Vista previa del Dashboard de Registro de Feeders en Nap Register"
-                    loading="lazy"
-                    decoding="async"
-                    data-pending-image
-                  />
+                  <picture>
+                    <source
+                      type="image/avif"
+                      srcset="assets/optimized/aporte-2-dashboard-480.avif 480w, assets/optimized/aporte-2-dashboard-800.avif 800w, assets/optimized/aporte-2-dashboard-1080.avif 1080w"
+                      sizes="(max-width: 760px) 88vw, 620px"
+                    />
+                    <source
+                      type="image/webp"
+                      srcset="assets/optimized/aporte-2-dashboard-480.webp 480w, assets/optimized/aporte-2-dashboard-800.webp 800w, assets/optimized/aporte-2-dashboard-1080.webp 1080w"
+                      sizes="(max-width: 760px) 88vw, 620px"
+                    />
+                    <img
+                      class="contribution-image"
+                      src="aporte-2-dashboard.png"
+                      alt="Vista previa del Dashboard de Registro de Feeders en Nap Register"
+                      loading="lazy"
+                      decoding="async"
+                      data-pending-image
+                    />
+                  </picture>
                   <span class="contribution-placeholder">Imagen pendiente</span>
                 </div>
                 <p>Acceso al dashboard de seguimiento y visualización de feeders.</p>
@@ -276,14 +387,26 @@
             <div class="aportes-content" id="aporte3Content" hidden>
               <div class="contribution-card">
                 <div class="contribution-media" data-image-shell>
-                  <img
-                    class="contribution-image"
-                    src="aporte-3-auditor.png"
-                    alt="Vista previa de Auditor Nap Register"
-                    loading="lazy"
-                    decoding="async"
-                    data-pending-image
-                  />
+                  <picture>
+                    <source
+                      type="image/avif"
+                      srcset="assets/optimized/aporte-3-auditor-480.avif 480w, assets/optimized/aporte-3-auditor-800.avif 800w, assets/optimized/aporte-3-auditor-1080.avif 1080w"
+                      sizes="(max-width: 760px) 88vw, 620px"
+                    />
+                    <source
+                      type="image/webp"
+                      srcset="assets/optimized/aporte-3-auditor-480.webp 480w, assets/optimized/aporte-3-auditor-800.webp 800w, assets/optimized/aporte-3-auditor-1080.webp 1080w"
+                      sizes="(max-width: 760px) 88vw, 620px"
+                    />
+                    <img
+                      class="contribution-image"
+                      src="aporte-3-auditor.png"
+                      alt="Vista previa de Auditor Nap Register"
+                      loading="lazy"
+                      decoding="async"
+                      data-pending-image
+                    />
+                  </picture>
                   <span class="contribution-placeholder">Imagen pendiente</span>
                 </div>
                 <p>Auditoría de registros y control operativo de Nap Register.</p>
@@ -304,14 +427,49 @@
             <div class="aportes-content" id="aporte4Content" hidden>
               <div class="contribution-card">
                 <div class="contribution-media" data-image-shell>
-                  <img
-                    class="contribution-image"
-                    src="aporte-4-matrices.png"
-                    alt="Vista previa de Creador de Matrices"
-                    loading="lazy"
-                    decoding="async"
-                    data-pending-image
-                  />
+                  <picture>
+                    <source
+                      type="image/avif"
+                      srcset="assets/optimized/aporte-4-matrices-480.avif 480w, assets/optimized/aporte-4-matrices-800.avif 800w, assets/optimized/aporte-4-matrices-1080.avif 1080w"
+                      sizes="(max-width: 760px) 88vw, 620px"
+                    />
+                    <source
+                      type="image/webp"
+                      srcset="assets/optimized/aporte-4-matrices-480.webp 480w, assets/optimized/aporte-4-matrices-800.webp 800w, assets/optimized/aporte-4-matrices-1080.webp 1080w"
+                      sizes="(max-width: 760px) 88vw, 620px"
+                    />
+                    <img
+                      class="contribution-image"
+                      src="aporte-4-matrices.png"
+                      alt="Vista previa de Creador de Matrices"
+                      loading="lazy"
+                      decoding="async"
+                      data-pending-image
+                    />
+                  </picture>
+                  <span class="contribution-placeholder">Imagen pendiente</span>
+                </div>
+                <div class="contribution-media" data-image-shell>
+                  <picture>
+                    <source
+                      type="image/avif"
+                      srcset="assets/optimized/listado-naps-480.avif 480w, assets/optimized/listado-naps-720.avif 720w, assets/optimized/listado-naps-1080.avif 1080w"
+                      sizes="(max-width: 760px) 88vw, 620px"
+                    />
+                    <source
+                      type="image/webp"
+                      srcset="assets/optimized/listado-naps-480.webp 480w, assets/optimized/listado-naps-720.webp 720w, assets/optimized/listado-naps-1080.webp 1080w"
+                      sizes="(max-width: 760px) 88vw, 620px"
+                    />
+                    <img
+                      class="contribution-image"
+                      src="Listado Naps.png"
+                      alt="Listado de NAPs"
+                      loading="lazy"
+                      decoding="async"
+                      data-pending-image
+                    />
+                  </picture>
                   <span class="contribution-placeholder">Imagen pendiente</span>
                 </div>
                 <p>Generador de matrices para documentación técnica de red.</p>
